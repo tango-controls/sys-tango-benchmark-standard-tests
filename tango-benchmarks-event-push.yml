@@ -1,6 +1,6 @@
 - &opts
-  clients: 2,4
-  period: 1
+  clients: 1,2,5,20,40:201:40
+  period: 60
 
 - &extopts
   <<: *opts
@@ -101,4 +101,4 @@
   <<: *devjava
   worker_program: tg_benchmark_client_java_pushevent
   csvfile: results-event-push-java-java.csv
-  
+
