@@ -1,0 +1,104 @@
+- &opts
+  clients: 2,4
+  period: 1
+
+- &extopts
+  <<: *opts
+  worker: tangobenchmarks.client.external.Worker
+
+- &devpy
+  device: sys/benchmark/python01
+
+- &devcpp
+  device: sys/benchmark/cpp01
+
+- &devjava
+  device: sys/benchmark/java01
+
+
+### devices
+
+- server_instance: PyBenchmarkTarget/01
+  device_class: PyBenchmarkTarget
+  target_device: sys/benchmark/python01
+  host: tangobox-bmark-server
+
+- server_instance: CppBenchmarkTarget/01
+  device_class: CppBenchmarkTarget
+  target_device: sys/benchmark/cpp01
+  host: tangobox-bmark-server
+
+- server_instance: JavaBenchmarkTarget/01
+  device_class: JavaBenchmarkTarget
+  target_device: sys/benchmark/java01
+  host: tangobox-bmark-server
+
+
+### attribute write (python client)
+
+- benchmark: write_benchmark
+  title: "python attribute write benchmark (python client)"
+  <<: *opts
+  <<: *devpy
+  csvfile: results-attr-write-python-python.csv
+
+- benchmark: write_benchmark
+  title: "cpp attribute write benchmark (python client)"
+  <<: *opts
+  <<: *devcpp
+  csvfile: results-attr-write-cpp-python.csv
+
+- benchmark: write_benchmark
+  title: "java attribute write benchmark (python client)"
+  <<: *opts
+  <<: *devjava
+  csvfile: results-attr-write-java-python.csv
+
+
+### attribute write (cpp client)
+
+- benchmark: write_benchmark
+  title: "python attribute write benchmark (cpp client)"
+  <<: *extopts
+  <<: *devpy
+  worker_program: tg_benchmark_client_write
+  csvfile: results-attr-write-python-cpp.csv
+
+- benchmark: write_benchmark
+  title: "cpp attribute write benchmark (cpp client)"
+  <<: *extopts
+  <<: *devcpp
+  worker_program: tg_benchmark_client_write
+  csvfile: results-attr-write-cpp-cpp.csv
+
+- benchmark: write_benchmark
+  title: "java attribute write benchmark (cpp client)"
+  <<: *extopts
+  <<: *devjava
+  worker_program: tg_benchmark_client_read
+  csvfile: results-attr-write-java-cpp.csv
+
+
+### attribute write (java client)
+
+- benchmark: write_benchmark
+  title: "python attribute write benchmark (java client)"
+  <<: *extopts
+  <<: *devpy
+  worker_program: tg_benchmark_client_java_write
+  csvfile: results-attr-write-python-java.csv
+
+- benchmark: write_benchmark
+  title: "cpp attribute write benchmark (java client)"
+  <<: *extopts
+  <<: *devcpp
+  worker_program: tg_benchmark_client_java_write
+  csvfile: results-attr-write-cpp-java.csv
+
+- benchmark: write_benchmark
+  title: "java attribute write benchmark (java client)"
+  <<: *extopts
+  <<: *devjava
+  worker_program: tg_benchmark_client_java_write
+  csvfile: results-attr-write-java-java.csv
+  

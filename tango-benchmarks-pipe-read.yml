@@ -1,0 +1,104 @@
+- &opts
+  clients: 2,4
+  period: 1
+
+- &extopts
+  <<: *opts
+  worker: tangobenchmarks.client.external.Worker
+
+- &devpy
+  device: sys/benchmark/python01
+
+- &devcpp
+  device: sys/benchmark/cpp01
+
+- &devjava
+  device: sys/benchmark/java01
+
+
+### devices
+
+- server_instance: PyBenchmarkTarget/01
+  device_class: PyBenchmarkTarget
+  target_device: sys/benchmark/python01
+  host: tangobox-bmark-server
+
+- server_instance: CppBenchmarkTarget/01
+  device_class: CppBenchmarkTarget
+  target_device: sys/benchmark/cpp01
+  host: tangobox-bmark-server
+
+- server_instance: JavaBenchmarkTarget/01
+  device_class: JavaBenchmarkTarget
+  target_device: sys/benchmark/java01
+  host: tangobox-bmark-server
+
+
+### pipe read (python client)
+
+- benchmark: pipe_read_benchmark
+  title: "python pipe read benchmark (python client)"
+  <<: *opts
+  <<: *devpy
+  csvfile: results-pipe-read-python-python.csv
+
+- benchmark: pipe_read_benchmark
+  title: "cpp pipe read benchmark (python client)"
+  <<: *opts
+  <<: *devcpp
+  csvfile: results-pipe-read-cpp-python.csv
+
+- benchmark: pipe_read_benchmark
+  title: "java pipe read benchmark (python client)"
+  <<: *opts
+  <<: *devjava
+  csvfile: results-pipe-read-java-python.csv
+
+  
+### pipe read (cpp client)
+
+- benchmark: pipe_read_benchmark
+  title: "python pipe read benchmark (cpp client)"
+  <<: *extopts
+  <<: *devpy
+  worker_program: tg_benchmark_client_pipe_read
+  csvfile: results-pipe-read-python-cpp.csv
+
+- benchmark: pipe_read_benchmark
+  title: "cpp pipe read benchmark (cpp client)"
+  <<: *extopts
+  <<: *devcpp
+  worker_program: tg_benchmark_client_pipe_read
+  csvfile: results-pipe-read-cpp-cpp.csv
+
+- benchmark: pipe_read_benchmark
+  title: "java pipe read benchmark (cpp client)"
+  <<: *extopts
+  <<: *devjava
+  worker_program: tg_benchmark_client_pipe_read
+  csvfile: results-pipe-read-java-cpp.csv
+
+
+### pipe read (java client)
+
+- benchmark: pipe_read_benchmark
+  title: "python pipe read benchmark (java client)"
+  <<: *extopts
+  <<: *devpy
+  worker_program: tg_benchmark_client_java_piperead
+  csvfile: results-pipe-read-python-java.csv
+
+- benchmark: pipe_read_benchmark
+  title: "cpp pipe read benchmark (java client)"
+  <<: *extopts
+  <<: *devcpp
+  worker_program: tg_benchmark_client_java_piperead
+  csvfile: results-pipe-read-cpp-java.csv
+
+- benchmark: pipe_read_benchmark
+  title: "java pipe read benchmark (java client)"
+  <<: *extopts
+  <<: *devjava
+  worker_program: tg_benchmark_client_java_piperead
+  csvfile: results-pipe-read-java-java.csv
+  

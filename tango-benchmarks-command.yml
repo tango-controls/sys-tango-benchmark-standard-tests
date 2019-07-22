@@ -1,0 +1,104 @@
+- &opts
+  clients: 2,4
+  period: 1
+
+- &extopts
+  <<: *opts
+  worker: tangobenchmarks.client.external.Worker
+
+- &devpy
+  device: sys/benchmark/python01
+
+- &devcpp
+  device: sys/benchmark/cpp01
+
+- &devjava
+  device: sys/benchmark/java01
+
+
+### devices
+
+- server_instance: PyBenchmarkTarget/01
+  device_class: PyBenchmarkTarget
+  target_device: sys/benchmark/python01
+  host: tangobox-bmark-server
+
+- server_instance: CppBenchmarkTarget/01
+  device_class: CppBenchmarkTarget
+  target_device: sys/benchmark/cpp01
+  host: tangobox-bmark-server
+
+- server_instance: JavaBenchmarkTarget/01
+  device_class: JavaBenchmarkTarget
+  target_device: sys/benchmark/java01
+  host: tangobox-bmark-server
+
+
+### command (python client)
+
+- benchmark: cmd_benchmark
+  title: "python command benchmark (python client)"
+  <<: *opts
+  <<: *devpy
+  csvfile: results-command-python-python.csv
+
+- benchmark: cmd_benchmark
+  title: "cpp command benchmark (python client)"
+  <<: *opts
+  <<: *devcpp
+  csvfile: results-command-cpp-python.csv
+
+- benchmark: cmd_benchmark
+  title: "java command benchmark (python client)"
+  <<: *opts
+  <<: *devjava
+  csvfile: results-command-java-python.csv
+
+
+### command (cpp client)
+
+- benchmark: cmd_benchmark
+  title: "python command benchmark (cpp client)"
+  <<: *extopts
+  <<: *devpy
+  worker_program: tg_benchmark_client_command
+  csvfile: results-command-python-cpp.csv
+
+- benchmark: cmd_benchmark
+  title: "cpp command benchmark (cpp client)"
+  <<: *extopts
+  <<: *devcpp
+  worker_program: tg_benchmark_client_command
+  csvfile: results-command-cpp-cpp.csv
+
+- benchmark: cmd_benchmark
+  title: "java command benchmark (cpp client)"
+  <<: *extopts
+  <<: *devjava
+  worker_program: tg_benchmark_client_command
+  csvfile: results-command-java-cpp.csv
+
+
+### command (java client)
+
+- benchmark: cmd_benchmark
+  title: "python command benchmark (java client)"
+  <<: *extopts
+  <<: *devpy
+  worker_program: tg_benchmark_client_java_command
+  csvfile: results-command-python-java.csv
+
+- benchmark: cmd_benchmark
+  title: "cpp command benchmark (java client)"
+  <<: *extopts
+  <<: *devcpp
+  worker_program: tg_benchmark_client_java_command
+  csvfile: results-command-cpp-java.csv
+
+- benchmark: cmd_benchmark
+  title: "java command benchmark (java client)"
+  <<: *extopts
+  <<: *devjava
+  worker_program: tg_benchmark_client_java_command
+  csvfile: results-command-java-java.csv
+  
