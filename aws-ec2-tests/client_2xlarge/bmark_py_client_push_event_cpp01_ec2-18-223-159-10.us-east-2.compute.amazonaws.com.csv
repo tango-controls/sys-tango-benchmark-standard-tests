@@ -1,0 +1,12 @@
+Read Benckmark
+2019-09-25 19:25:23.015964+0000
+attribute=BenchmarkScalarAttribute,"clients=1,2,4,8,16,32,64,96",csvfile=bmark_py_client_push_event_cpp01_ec2-18-223-159-10.us-east-2.compute.amazonaws.com.csv,device=sys/benchmark/cpp01,period=15,sleep=10,worker=tangobenchmarks.client.python.pushevent.Worker,worker_program=tangobenchmarks.client.python.pushevent.Worker
+Run no.,No. clients,Sum counts [event],SD [event],Sum Speed [event/s],SD [event/s],Counts [event],SD [event],Speed [event/s],SD [event/s],Time [s],SD [s],Errors
+0,1,1493.0,0.0,99.3889146933,0.0,1493.0,0.0,99.3889146933,0.0,15.0217959881,0.0,0
+1,2,2986.0,0.0,198.77642,0.00011,1493.0,0.0,99.388210,0.000056,15.0219024,0.0000085,0
+2,4,5972.0,0.0,397.5069,0.0031,1493.0,0.0,99.37673,0.00079,15.02364,0.00012,0
+3,8,11936.0,0.0,794.901,0.025,1492.0,0.0,99.3626,0.0031,15.01571,0.00046,0
+4,16,23872.0,0.0,1589.93,0.36,1492.0,0.0,99.371,0.023,15.0145,0.0034,0
+5,32,47712.0,0.0,3178.04,0.84,1491.0,0.0,99.314,0.026,15.0130,0.0040,0
+6,64,95360.0,0.0,6351.8,1.7,1490.0,0.0,99.247,0.027,15.0131,0.0041,0
+7,96,142848.0,0.0,9515.8,2.9,1488.0,0.0,99.123,0.030,15.0117,0.0046,0
