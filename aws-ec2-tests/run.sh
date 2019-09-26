@@ -100,7 +100,7 @@ for instance in ${TGT_INSTANCES[*]}; do
         echo "Running java read on $TGT_JAVA ... @ $server @ $instance"
         ssh -i ~/aws-keypar-01.pem ubuntu@$instance "TANGO_HOST=$TANGO_HOST TANGO_ROOT=/usr/local $server 01" &>/dev/null &
         sleep 2
-        run_benchmark cpp read $TGT_JAVA $instance --worker tangobenchmarks.client.external.Worker --worker-program tg_benchmark_client_java_read
+        run_benchmark java read $TGT_JAVA $instance --worker tangobenchmarks.client.external.Worker --worker-program tg_benchmark_client_java_read
         ssh -i ~/aws-keypar-01.pem ubuntu@$instance killall PyBenchmarkTarget CppBenchmarkTarget JavaBenchmarkTarget java &>/dev/null || true
 
 	server=${device_to_server[$TGT_PY]}
