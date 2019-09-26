@@ -1,0 +1,12 @@
+Read Benckmark
+2019-09-25 21:12:00.240200+0000
+attribute=BenchmarkScalarAttribute,"clients=1,2,4,8,16,32,64,96",csvfile=bmark_py_client_read_java01_ec2-52-14-141-108.us-east-2.compute.amazonaws.com.csv,device=sys/benchmark/java01,period=15,worker=tangobenchmarks.client.python.read.Worker,worker_program=tangobenchmarks.client.python.read.Worker
+Run no.,No. clients,Sum counts [read],SD [read],Sum Speed [read/s],SD [read/s],Counts [read],SD [read],Speed [read/s],SD [read/s],Time [s],SD [s],Errors
+0,1,17843.0,0.0,1189.50741223,0.0,17843.0,0.0,1189.50741223,0.0,15.0003268719,0.0,0
+1,2,36800,28,2453.1,1.9,18400,14,1226.55,0.93,15.00144,0.00034,0
+2,4,74406,29,4960.3,1.9,18601.5,7.2,1240.06,0.48,15.00043,0.00025,0
+3,8,118672,283,7911,19,14834,35,988.9,2.4,15.00049,0.00020,0
+4,16,103820,507,6921,34,6489,32,432.6,2.1,15.00093,0.00057,0
+5,32,110220,678,7347,45,3444,21,229.6,1.4,15.0027,0.0011,0
+6,64,111855,461,7455,31,1747.7,7.2,116.49,0.48,15.0039,0.0035,0
+7,96,114865,455,7656,30,1196.5,4.7,79.75,0.32,15.0042,0.0030,0

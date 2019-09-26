@@ -1,0 +1,12 @@
+Read Benckmark
+2019-09-25 23:50:29.746586+0000
+attribute=BenchmarkScalarAttribute,"clients=1,2,4,8,16,32,64,96",csvfile=bmark_cpp_client_read_cpp01_ec2-13-59-209-221.us-east-2.compute.amazonaws.com.csv,device=sys/benchmark/cpp01,period=15,worker=tangobenchmarks.client.external.Worker,worker_program=tg_benchmark_client_read
+Run no.,No. clients,Sum counts [read],SD [read],Sum Speed [read/s],SD [read/s],Counts [read],SD [read],Speed [read/s],SD [read/s],Time [s],SD [s],Errors
+0,1,161412.0,0.0,10760.8,0.0,161412.0,0.0,10760.8,0.0,15.0,0.0,0
+1,2,308379,649,20558,43,154190,324,10279,22,15.0001,0.0,0
+2,4,616624,1373,41108,92,154156,343,10277,23,15.000025,0.000043,0
+3,8,999967,2686,66664,179,124996,336,8333,22,15.000062,0.000048,0
+4,16,876256,9559,58417,637,54766,597,3651,40,15.00013,0.00010,0
+5,32,881315,10997,58754,733,27541,344,1836,23,15.00016,0.00011,0
+6,64,872909,11003,58192,734,13639,172,909,11,15.00046,0.00065,0
+7,96,871886,14653,58123,977,9082,153,605,10,15.00071,0.00092,0
