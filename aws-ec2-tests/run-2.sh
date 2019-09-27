@@ -59,7 +59,7 @@ device_to_server=(
 
 # server testing
 for inst_size in large xlarge 2xlarge 4xlarge 9xlarge 18xlarge; do
-  for bmark in read write event; do
+  for bmark in read write; do
     for device in $TGT_PY $TGT_CPP $TGT_JAVA; do
       cpp_client=${cpp_client_name[$bmark]}
       java_client=${java_client_name[$bmark]}
@@ -93,7 +93,7 @@ done
 
 # client testing
 # for inst_size in 18xlarge; do
-#   for bmark in read write event; do
+#   for bmark in read write; do
 #     for device in $TGT_PY; do
 #       cpp_client=${cpp_client_name[$bmark]}
 #       java_client=${java_client_name[$bmark]}
